@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Bitácora EVA",
   "version": "3.0",
-  "description": "Extensión para registrar conversaciones de chatgpt sustituyendo el uso del contenteditable de la plataforma donde los usuarios redactan sus prompts. La extensión abre un popup que permite al usuario mediante un formulario, editar su texto y utilizar la tecla ENTER para realizar un salto de linea, luego puede inyecta (copiar y pegar en el espacio para escribir los prompts de la plataforma de chatgpt) lo editado en el prompt de la plataforma. Ademas va guardando en el ordenador del usuario, un archivo de texto, numerando y formateando -segun protocolo establecido- las conversaciones que ha tenido con chatgpt",
+  "description": "Extensión para registrar conversaciones de ChatGPT sustituyendo el uso del contenteditable de la plataforma donde los usuarios redactan sus prompts. La extensión abre un popup que permite al usuario, mediante un formulario, editar su texto y utilizar la tecla ENTER para realizar un salto de línea, luego puede inyectar (copiar y pegar en el espacio para escribir los prompts de la plataforma de ChatGPT) lo editado en el prompt de la plataforma. Además, va guardando en el ordenador del usuario un archivo de texto, numerando y formateando -según protocolo establecido- las conversaciones que ha tenido con ChatGPT.",
   "permissions": [
     "activeTab",
     "storage",
