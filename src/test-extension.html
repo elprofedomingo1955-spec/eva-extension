@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Extensión EVA - Selectores Actualizados</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Test Extensión EVA - Selectores Actualizados</h1>
+    
+    <div class="test-section">
+        <h2>📋 Resumen de Correcciones Realizadas</h2>
+        <ul>
+            <li class="success">✅ Selectores de textarea actualizados en content.js</li>
+            <li class="success">✅ Selectores de botón enviar corregidos</li>
+            <li class="success">✅ Selectores de mensajes/respuestas actualizados</li>
+            <li class="success">✅ Observer actualizado para estructura ChatGPT 2025</li>
+            <li class="success">✅ Función tryInjectToPage agregada</li>
+            <li class="success">✅ Manifest.json corregido y completado</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🎯 Selectores Críticos Actualizados</h2>
+        
+        <h3>1. Textarea del Composer:</h3>
+        <pre>
+// ANTES (no funcionaba):
+textarea[name="prompt-textarea"]
+
+// AHORA (actualizado):
+textarea[name="prompt-textarea"] ||
+textarea[data-virtualkeyboard="true"] ||
+textarea
+        </pre>
+
+        <h3>2. Botón de Envío:</h3>
+        <pre>
+// ANTES (no funcionaba):
+button[data-testid="send-button"]
+
+// AHORA (actualizado):
+- Busca en .composer-parent
+- Detecta botones con SVG específicos
+- Fallback a botones de formulario
+        </pre>
+
+        <h3>3. Contenedor de Mensajes:</h3>
+        <pre>
+// ANTES (limitado):
+div[data-testid="conversation-turns"]
+
+// AHORA (robusto):
+#thread ||
+main#main ||
+.group/thread ||
+div[data-testid="conversation-turns"]
+        </pre>
+
+        <h3>4. Detección de Respuestas:</h3>
+        <pre>
+// NUEVOS SELECTORES:
+div[data-message-author-role="assistant"]
+div[data-message-author-role="user"]
+.text-base
+div[class*="message"] div
+        </pre>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 Archivos Modificados</h2>
+        <ul>
+            <li><strong>src/content/content.js</strong> - Selectores de DOM actualizados</li>
+            <li><strong>src/popup/popup.js</strong> - Función tryInjectToPage agregada</li>
+            <li><strong>src/popup/observer.js</strong> - Observer mejorado</li>
+            <li><strong>src/manifest.json</strong> - Corregido y completado</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>📝 Instrucciones de Instalación</h2>
+        <ol>
+            <li>Abre Chrome y ve a <code>chrome://extensions/</code></li>
+            <li>Activa "Modo de desarrollador" (esquina superior derecha)</li>
+            <li>Haz clic en "Cargar extensión sin empaquetar"</li>
+            <li>Selecciona la carpeta <code>src/</code> de tu proyecto</li>
+            <li>Ve a <code>chatgpt.com</code></li>
+            <li>Haz clic en el icono de la extensión EVA</li>
+            <li>Prueba escribir un mensaje y enviarlo</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>🐛 Solución al Problema Original</h2>
+        <p class="info">
+            <strong>Problema:</strong> Después de "limpiar" todo, la extensión dejó de funcionar.<br>
+            <strong>Causa:</strong> ChatGPT actualizó su estructura DOM y los selectores antiguos ya no funcionaban.<br>
+            <strong>Solución:</strong> Actualización completa de selectores basada en el análisis del HTML real de ChatGPT 2025.
+        </p>
+    </div>
+
+    <div class="test-section">
+        <h2>✨ Funcionalidades Restauradas</h2>
+        <ul>
+            <li>✅ Inyección de texto en el composer de ChatGPT</li>
+            <li>✅ Detección automática del botón de envío</li>
+            <li>✅ Captura de respuestas de ChatGPT</li>
+            <li>✅ Observador de cambios en el DOM</li>
+            <li>✅ Almacenamiento de bitácora</li>
+            <li>✅ Descarga de conversaciones</li>
+        </ul>
+    </div>
+
+    <script>
+        console.log('🚀 Extensión EVA - Test de Selectores Actualizados');
+        console.log('📅 Fecha de corrección:', new Date().toLocaleString());
+        console.log('🎯 Selectores actualizados para ChatGPT 2025');
+    </script>
+</body>
+</html>

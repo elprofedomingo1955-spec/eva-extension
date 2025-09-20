@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Bitácora EVA",
+  "version": "2.0",
+  "description": "Extensión para registrar conversaciones y sustituir prompt por popup que inyecta lo editado en el prompt de la plataforma",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "*://chat.openai.com/*",
+    "*://chatgpt.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://chat.openai.com/*",
+        "*://chatgpt.com/*"
+      ],
+      "js": ["content/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injector.js"],
+      "matches": [
+        "*://chat.openai.com/*",
+        "*://chatgpt.com/*"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Bitácora EVA",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
